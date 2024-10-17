@@ -1,100 +1,486 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Custom Alert with Text Size</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+    <title>Document</title>
     <style>
-        #customAlert {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            font-size: 20px; /* Kích thước văn bản tùy chỉnh */
+        body {
+            margin: 0;
         }
-        #helloAlert {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            font-size: 20px; /* Kích thước văn bản tùy chỉnh */
+
+        .hang1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:rgb(90, 35, 35);
+            width: 100%;
+            height: 100px;
         }
-        #finalHelloAlert {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1002;
-            font-size: 20px; /* Kích thước văn bản tùy chỉnh */
+
+        .hang1 div {
+            display: flex; 
+            justify-content: center;
         }
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+
+        .hang1 input, button {
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 50px;
+            box-sizing: border-box;
+        }
+
+        .hang1 input {
+            width: 100%;
+        }
+
+        .hang1 button img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            cursor: pointer;
+        }
+        
+        .luffyfood {
+            position: absolute; /* Để có thể đặt vị trí chính xác */
+             color: #e9a3a3; /* Màu chữ chính là trắng */
+             font-family: 'Spicy Rice', cursive;
+             font-size: 80px;
+             height: 100px;
+             top: 40px;
+             left: 20px; /* Đặt vị trí theo chiều ngang */
+             text-shadow: 
+                        -5px -5px 10px rgb(228, 147, 144),
+                        5px 5px 10px rgb(96, 66, 45);
+        }
+
+        .letter {
+            display: inline-block;
+            animation: jump 0.8s ease-in-out infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hang2 {
+            display: flex;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 100px;
+            align-items: center;
+        
+            overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+        }
+        
+        .hang2 div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .hang2 ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hang2 img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+        }
+
+        .hang2 button {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hang2 li {
+            list-style-type: none;
+        }
+
+        .gio {
+            font-size: 60px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .hang3 {
+            display: flex;
+            border: 1px dashed #0d0d0d;
+            margin: 0px;
+            height: auto;
+            list-style-type: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hang3div {
+            width: auto;
+            height: auto;
+            margin: 4px;
+            border: 4px solid black;
+            text-align: center;
+        }
+
+        .hang3div div {
+            width: auto;
+            border-bottom: 2px solid #00FF00;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .hang3 img {
+            max-width: 100%;
+            height: 200px;
+            border: 4px solid red;
+            border-radius: 10%;
+            object-fit: cover;
+        }
+
+        .hang4 {
+            display: flex;
+            background-color:rgb(96, 66, 45);
+            width: 100%;
+            height: 20vh;
+        }
+
+
+
+        @media (max-width: 768px) {
+            body {
+            margin: 0;
+        }
+
+        .hang1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:rgb(90, 35, 35);
+            width: 100%;
+            height: 100px;
+        }
+
+        .hang1 div {
+            display: flex; 
+            justify-content: center;
+        }
+
+        .hang1 input, button {
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 50px;
+            box-sizing: border-box;
+        }
+
+        .hang1 input {
+            width: 100%;
+        }
+
+        .hang1 button img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .luffyfood {
+            position: absolute; /* Để có thể đặt vị trí chính xác */
+             color: #e9a3a3; /* Màu chữ chính là trắng */
+             font-family: 'Spicy Rice', cursive;
+             font-size: 40px;
+             height: 100px;
+             top: 40px;
+             left: 20px; /* Đặt vị trí theo chiều ngang */
+             text-shadow: 
+                        -5px -5px 10px rgb(228, 147, 144),
+                        5px 5px 10px rgb(96, 66, 45);
+        }
+
+        .letter {
+            display: inline-block;
+            animation: jump 0.8s ease-in-out infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hang2 {
+            display: flex;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hang2 div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .hang2 ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hang2 img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+        }
+
+        .hang2 button {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hang2 li {
+            list-style-type: none;
+        }
+
+        .gio {
+            font-size: 30px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .hang3 {
+            display: flex;
+            border: 1px dashed #0d0d0d;
+            margin: 0px;
+            height: auto;
+            list-style-type: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hang3div {
+            width: auto;
+            height: auto;
+            margin: 4px;
+            border: 4px solid black;
+            text-align: center;
+        }
+
+        .hang3div div {
+            width: auto;
+            border-bottom: 2px solid #00FF00;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .hang3 img {
+            max-width: 100%;
+            height: 200px;
+            border: 4px solid red;
+            border-radius: 10%;
+            object-fit: cover;
+        }
+
+        .hang4 {
+            display: flex;
+            background-color:rgb(96, 66, 45);
+            width: 100%;
+            height: 20vh;
+        }
         }
     </style>
 </head>
 <body>
+    <div class="hang1">
+        <div style="flex: 2"></div>
+        <b><div class="gio" style="flex: 1;"></div></b>
+        <div style="flex: 1">
+            <button style="border-radius: 50%;"><img style="border-radius: 50%;width:50px; height: 50px;" src="images/giohang.jpg" alt="Giỏ hàng"></button>
+        </div>
+        <div style="flex: 1">
+            <button style="border-radius: 50%;"><img style="border-radius: 50%;width:50px; height: 50px;" src="images/daidien.jpg" alt="Đại diện"></button>
+        </div>
+    </div>
+    
+    <div class="hang2">
+        <div>
+            <ul>
+                <li><button><img src="images/new.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/combo.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/burger.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/garan.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div><div>
+            <ul>
+                <li><button><img src="images/douong.jpg"></button></li>
+                <li><button>Món mới</button></li>
+            </ul>
+        </div>
 
-    <button type="button" onclick="GioiThieu()"><p style="font-size:50px;">Bấm vào đây</p></button>
-
-    <div id="overlay"></div>
-    <div id="customAlert">
-        <p style="font-size:50px;"><b>Học thì ngu mà suốt ngày game</b></p>
-        <button onclick="closeAlert()" style="font-size:50px;">Đóng</button>
     </div>
 
-    <div id="helloAlert">
-        <p style="font-size:50px;"><b>Đóng làm chi, lo mà học đi</b></p>
-        <button onclick="closeHelloAlert()" style="font-size:50px;">Đóng</button>
+    <div class="luffyfood"></div>
+
+    <div class="hang3">
+        <div class="hang3div">
+            <a href="#"><img src="images/garan.jpg"></a>
+            <div>Mã sp : 1</div>
+            <div>Gà Rán Ngon Nhức Nách</div>
+            <div>Giá : 1 viên kc của cô Hằng</div>
+            <div><span><button class="link">Mua</button></span></div>
+            <div><span><button class="link">Thêm vào giỏ hàng</button></span></div>
+        </div>
+        <!-- Thêm các sản phẩm khác nếu cần -->
     </div>
 
-    <div id="finalHelloAlert">
-        <p style="font-size:50px;"><b>Ngu lắm rồi đó</b></p>
-        <button onclick="closeFinalHelloAlert()" style="font-size:50px;">Đóng</button>
-    </div>
 
+    <div class="hang4">
+        Thông tin page
+    </div>
     <script>
-        function GioiThieu() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('customAlert').style.display = 'block';
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.querySelector('.gio').textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        function closeAlert() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('customAlert').style.display = 'none';
-            document.getElementById('helloAlert').style.display = 'block'; // Hiện bảng chữ "Hello"
-        }
+        setInterval(updateClock, 1000); // Cập nhật đồng hồ mỗi giây
+        updateClock(); // Gọi hàm một lần ngay khi tải trang
 
-        function closeHelloAlert() {
-            document.getElementById('helloAlert').style.display = 'none'; // Đóng bảng chữ "Hello"
-            document.getElementById('finalHelloAlert').style.display = 'block'; // Hiện bảng chữ "Hello" nữa
-        }
+        const textContainer = document.querySelector('.luffyfood');
+        const text = "LUFFY FOOD"; // Sử dụng chuỗi này
+        textContainer.textContent = ''; // Xóa nội dung ban đầu
 
-        function closeFinalHelloAlert() {
-            document.getElementById('finalHelloAlert').style.display = 'none'; // Đóng bảng chữ "Hello" nữa
-        }
+        // Tạo từng chữ cái và thêm vào container
+        text.split('').forEach((char, index) => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.classList.add('letter');
+            // Thêm độ trễ cho mỗi chữ cái
+            span.style.animationDelay = `${index * 0.1}s`; // Thay đổi giá trị 0.1s cho độ trễ
+            textContainer.appendChild(span);
+        });
     </script>
-
 </body>
 </html>
